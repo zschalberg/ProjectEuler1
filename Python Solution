@@ -1,0 +1,25 @@
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+# Find the sum of all the multiples of 3 or 5 below 1000.
+
+#Declare variables
+condition = False
+answer = 0
+myList = []
+#Ask user for high end of range. 
+while condition is False: 
+    test = raw_input("Enter the range for testing\n")
+	try: 															#Test to make sure it is an integer
+        int(test)
+    except ValueError: 												#If not, make the user enter an integer
+        print "Error! Need to enter an integer value"
+    else: 															#Once integer is entered end the loop
+        condition = True
+        test = int(test)
+        print True
+        for number in range(1,test):
+            if number % 3 == 0 or number % 5 == 0: 					#Test divisibility
+                myList.append(number) 								#If divisible by 3 or 5, add to list
+        for num in myList:
+            answer += num 											#Add all divisible numbers together
+        print answer
